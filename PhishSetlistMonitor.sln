@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{24122655-BF17-47B8-A4B9-6BB360418467}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhishSetlistMonitor.BackgroundService", "src\PhishSetlistMonitor.BackgroundService\PhishSetlistMonitor.BackgroundService.csproj", "{92479179-007A-4391-93F1-C01B5C1133B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhishSetlistMonitor.Infrastructure", "src\PhishSetlistMonitor.Infrastructure\PhishSetlistMonitor.Infrastructure.csproj", "{330993F4-9823-44E9-8910-44752956C05E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhishSetlistMonitor.Application", "src\PhishSetlistMonitor.Application\PhishSetlistMonitor.Application.csproj", "{B90A6885-5AED-447A-8A55-F456AC1028FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{92479179-007A-4391-93F1-C01B5C1133B8} = {24122655-BF17-47B8-A4B9-6BB360418467}
+		{330993F4-9823-44E9-8910-44752956C05E} = {24122655-BF17-47B8-A4B9-6BB360418467}
+		{B90A6885-5AED-447A-8A55-F456AC1028FE} = {24122655-BF17-47B8-A4B9-6BB360418467}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92479179-007A-4391-93F1-C01B5C1133B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92479179-007A-4391-93F1-C01B5C1133B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92479179-007A-4391-93F1-C01B5C1133B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92479179-007A-4391-93F1-C01B5C1133B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{330993F4-9823-44E9-8910-44752956C05E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{330993F4-9823-44E9-8910-44752956C05E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{330993F4-9823-44E9-8910-44752956C05E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{330993F4-9823-44E9-8910-44752956C05E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B90A6885-5AED-447A-8A55-F456AC1028FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B90A6885-5AED-447A-8A55-F456AC1028FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B90A6885-5AED-447A-8A55-F456AC1028FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B90A6885-5AED-447A-8A55-F456AC1028FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
