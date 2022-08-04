@@ -1,0 +1,3 @@
+﻿namespace PhishSetlistMonitor.BackgroundService.AppSettings;
+
+public record PhishSetlistPollingServiceSettings(int PollFrequencyMinutes);
