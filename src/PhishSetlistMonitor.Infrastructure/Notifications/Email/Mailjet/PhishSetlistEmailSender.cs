@@ -18,6 +18,7 @@ public class PhishSetlistEmailSender : INotificationSender
 
     public async Task SendPhishSetlistNotificationAsync()
     {
+        await Task.Delay(1);
         var request = new MailjetRequest { Resource = Send.Resource, };
     }
 }

@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using PhishSetlistMonitor.Application.PollSetlists.Dto;
+using PhishSetlistMonitor.Application.Common.Dto;
 
 namespace PhishSetlistMonitor.Application.PollSetlists.Queries;
 
-public record GetSetlistsQuery : IRequest<IReadOnlyCollection<Setlist>>;
+public record GetSetlistsQuery(string EndpointKey, DateOnly ShowDate) : IRequest<Setlist>;

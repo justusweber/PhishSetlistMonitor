@@ -5,12 +5,10 @@ using PhishSetlistMonitor.Application;
 using PhishSetlistMonitor.BackgroundService;
 using PhishSetlistMonitor.BackgroundService.AppSettings;
 using PhishSetlistMonitor.Infrastructure;
-using PhishSetlistMonitor.Infrastructure.Notifications.Email.Mailjet.Settings;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((context, services) =>
     {
-        services.Configure<MailjetSettings>(context.Configuration.GetSection(nameof(MailjetSettings)));
         services.Configure<PhishSetlistPollingServiceSettings>(context.Configuration.GetSection(nameof(PhishSetlistPollingServiceSettings)));
 
         services.AddHostedService<PhishSetlistPollingService>();

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using PhishSetlistMonitor.Application.PollSetlists.Queries;
 using PhishSetlistMonitor.BackgroundService.AppSettings;
 using System;
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -30,11 +31,12 @@ public class PhishSetlistPollingService : Microsoft.Extensions.Hosting.Backgroun
         {
             _logger.LogInformation($"{nameof(PhishSetlistPollingService)} has STARTED working.");
 
-            var timer = new PeriodicTimer(TimeSpan.FromMinutes(_phishSetlistPollingServiceSettings.PollFrequencyMinutes));
+            var timer = new PeriodicTimer(TimeSpan.FromSeconds(_phishSetlistPollingServiceSettings.PollFrequencySeconds));
             while (await timer.WaitForNextTickAsync(stoppingToken))
             {
                 // get the current setlists data
-                var setlists = await _mediator.Send(new GetSetlistsQuery(), stoppingToken);
+                var showDate = DateOnly.FromDateTime(DateTime.Now);
+                var setlists = await _mediator.Send(new GetSetlistsQuery("SetlistByDate", showDate), stoppingToken);
             }
         }
         catch (Exception ex) when (stoppingToken.IsCancellationRequested)
