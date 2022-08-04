@@ -1,9 +1,7 @@
 ﻿using Mailjet.Client;
 using Mailjet.Client.Resources;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using PhishSetlistMonitor.Application.Common.Interfaces;
-using PhishSetlistMonitor.Infrastructure.Notifications.Email.Mailjet.Settings;
 
 namespace PhishSetlistMonitor.Infrastructure.Notifications.Email.Mailjet;
 public class PhishSetlistEmailSender : INotificationSender
