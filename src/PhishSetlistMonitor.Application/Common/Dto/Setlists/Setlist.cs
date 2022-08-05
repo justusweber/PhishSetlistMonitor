@@ -1,4 +1,4 @@
-﻿namespace PhishSetlistMonitor.Application.Common.Dto;
+﻿namespace PhishSetlistMonitor.Application.Common.Dto.Setlists;
 
 public record Setlist
 {

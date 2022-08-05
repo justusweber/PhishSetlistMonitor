@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using PhishSetlistMonitor.Application.Common.Dto;
+using PhishSetlistMonitor.Application.Common.Dto.Setlists;
 
 namespace PhishSetlistMonitor.Application.PollSetlists.Queries;
 

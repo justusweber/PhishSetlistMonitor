@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using PhishSetlistMonitor.Application.Common.Interfaces;
 using PhishSetlistMonitor.Infrastructure.HttpClients.PhishNet;
 using PhishSetlistMonitor.Infrastructure.HttpClients.PhishNet.PhishNetApi;
+using PhishSetlistMonitor.Infrastructure.Notifications.Email.Mailjet;
 using PhishSetlistMonitor.Infrastructure.Notifications.Email.Mailjet.Settings;
 using Polly;
 
@@ -15,6 +16,7 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
+        services.AddTransient<INotificationSender, PhishSetlistEmailSender>();
         services.Configure<MailjetSettings>(configuration.GetSection(nameof(MailjetSettings)));
         var mailjetApiKey = configuration.GetSection($"{nameof(MailjetSettings)}:ApiKey")?.Value;
         var mailjetApiSecret = configuration.GetSection($"{nameof(MailjetSettings)}:ApiSecret")?.Value;
@@ -25,8 +27,6 @@ public static class DependencyInjection
 
                 client.UseBasicAuthentication(mailjetApiKey, mailjetApiSecret);
             })
-
-            // get polly wired up to do retry on fail
             .AddTransientHttpErrorPolicy(p => p.RetryAsync(2));
 
 

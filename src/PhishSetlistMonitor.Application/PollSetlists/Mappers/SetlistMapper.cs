@@ -1,4 +1,5 @@
 ﻿using PhishSetlistMonitor.Application.Common.Dto;
+using PhishSetlistMonitor.Application.Common.Dto.Setlists;
 using PhishSetlistMonitor.Application.PollSetlists.Dto.PhishNet;
 
 namespace PhishSetlistMonitor.Application.PollSetlists.Mappers;

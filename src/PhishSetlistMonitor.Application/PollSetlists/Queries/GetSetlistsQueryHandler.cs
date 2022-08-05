@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
 using PhishSetlistMonitor.Application.Common.Dto;
+using PhishSetlistMonitor.Application.Common.Dto.Setlists;
 using PhishSetlistMonitor.Application.Common.Interfaces;
 using PhishSetlistMonitor.Application.PollSetlists.Dto.PhishNet;
 using PhishSetlistMonitor.Application.PollSetlists.Mappers;
