@@ -66,7 +66,7 @@ public class PhishSetlistPollingService : Microsoft.Extensions.Hosting.Backgroun
         {
             MailjetMessage = new MailjetMessage
             {
-                From = new MailjetFrom("justus.weber@atptour.com", "Justus Weber"),
+                From = new MailjetFrom("jw@justusweber.net", "Justus Weber"),
                 To = new MailjetRecipient("justusweber@gmail.com", "Justus Weber"),
                 Subject = "Phish setlist monitor test",
                 TextPart = songs
