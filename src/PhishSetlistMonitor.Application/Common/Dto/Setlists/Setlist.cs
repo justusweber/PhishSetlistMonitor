@@ -3,6 +3,7 @@
 public record Setlist
 {
     public string Venue { get; init; }
-    public DateTime ShowDate { get; init; }
+    public DateOnly ShowDate { get; init; }
+    public string Soundcheck { get; init; }
     public IReadOnlyCollection<SetlistSong> SetlistSongs { get; init; }
 }

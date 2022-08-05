@@ -7,7 +7,6 @@ using PhishSetlistMonitor.Application.PollSetlists.Commands;
 using PhishSetlistMonitor.Application.PollSetlists.Queries;
 using PhishSetlistMonitor.BackgroundService.AppSettings;
 using System;
-using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -39,7 +38,7 @@ public class PhishSetlistPollingService : Microsoft.Extensions.Hosting.Backgroun
             while (await timer.WaitForNextTickAsync(stoppingToken))
             {
                 // get the current setlists data
-                var showDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-1));
+                var showDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-2));
                 var setlists = await _mediator.Send(new GetSetlistsQuery("SetlistByDate", showDate), stoppingToken);
 
                 // if there is a setlist then send a notification email
@@ -61,15 +60,16 @@ public class PhishSetlistPollingService : Microsoft.Extensions.Hosting.Backgroun
 
     private MailjetEmail ConstructNotificationEmail(Setlist setlist)
     {
-        var songs = string.Join(Environment.NewLine, setlist.SetlistSongs.Select(s => s.SongName));
+        var songs = string.Join(Environment.NewLine, setlist.SetlistSongs
+            .Select(s => $"{s.SetNumber}-{s.SongPosition}-{s.SongName}"));
         var mailJetEmail = new MailjetEmail
         {
             MailjetMessage = new MailjetMessage
             {
                 From = new MailjetFrom("jw@justusweber.net", "Justus Weber"),
                 To = new MailjetRecipient("justusweber@gmail.com", "Justus Weber"),
-                Subject = "Phish setlist monitor test",
-                TextPart = songs
+                Subject = $"Phish Setlist Monitor {setlist.Venue} - {setlist.ShowDate}",
+                TextPart = $"{setlist.Venue} - {setlist.ShowDate}{Environment.NewLine}(Soundcheck: {setlist.Soundcheck}){Environment.NewLine}{Environment.NewLine}{songs}"
             }
         };
 

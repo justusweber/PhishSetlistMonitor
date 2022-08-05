@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using PhishSetlistMonitor.Application.Common.Dto.Mailjet;
 using PhishSetlistMonitor.Application.Common.Interfaces;
 
 namespace PhishSetlistMonitor.Application.PollSetlists.Commands;
